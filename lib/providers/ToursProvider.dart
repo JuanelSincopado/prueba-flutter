@@ -35,7 +35,7 @@ class ToursProvider with ChangeNotifier {
         final jsonResponse = convert.jsonDecode(response.body);
         tours = jsonResponse.map<ModeloTour>((element) {
           return ModeloTour.fromJson(element);
-        });
+        }).toList();
       }
     } catch (e) {
       print(e);

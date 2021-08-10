@@ -24,12 +24,19 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primaryColor: Colors.blue,
-          primarySwatch: Colors.blue,
+          primaryColor: Color.fromRGBO(157, 181, 194, 1),
+          accentColor: Color.fromRGBO(157, 181, 194, 1),
           fontFamily: 'OpenSans',
           primaryColorBrightness: Brightness.light,
           brightness: Brightness.light,
           accentColorBrightness: Brightness.light,
+          textTheme: TextTheme(
+            bodyText1: TextStyle(color: Color.fromRGBO(45, 78, 96, 1)),
+            bodyText2: TextStyle(color: Color.fromRGBO(45, 78, 96, 1)),
+          ),
+          iconTheme: IconThemeData(
+            color: Color.fromRGBO(45, 78, 96, 1),
+          ),
         ),
         initialRoute: '/',
         routes: {
