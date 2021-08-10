@@ -19,7 +19,7 @@ class BotonLogin extends StatelessWidget {
         if (_keyForm.currentState!.validate()) {
           if (await Provider.of<AuthProvider>(context, listen: false)
               .getUsuario()) {
-            Navigator.pushReplacementNamed(context, '/HomeScreen');
+            Navigator.pushReplacementNamed(context, '/MainScreen');
           } else {
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text("Ocurrió un error")));
