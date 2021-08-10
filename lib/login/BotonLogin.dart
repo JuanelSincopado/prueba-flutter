@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:prueba/providers/AuthProvider.dart';
+import 'package:prueba/screens/HomeScreen.dart';
 
 class BotonLogin extends StatelessWidget {
   const BotonLogin({
@@ -12,24 +15,23 @@ class BotonLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
+      onPressed: () async {
         if (_keyForm.currentState!.validate()) {
-          AlertDialog(
-            title: Text('listo'),
-            content: Text('ici'),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context, 'Cancel'),
-                child: Text('Ok'),
-              )
-            ],
-          );
+          if (await Provider.of<AuthProvider>(context, listen: false)
+              .getUsuario()) {
+            Navigator.pushReplacementNamed(context, '/HomeScreen');
+          } else {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text("Ocurrió un error")));
+          }
         }
       },
       child: Text(
         'Iniciar Sesión',
-        style:
-            TextStyle(color: Color.fromRGBO(255, 255, 255, 0.8), fontSize: 20),
+        style: TextStyle(
+          color: Color.fromRGBO(255, 255, 255, 0.8),
+          fontSize: 20,
+        ),
       ),
       style: ElevatedButton.styleFrom(
         primary: Color.fromRGBO(0, 208, 235, 1),

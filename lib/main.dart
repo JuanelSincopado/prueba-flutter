@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:prueba/login/LoginScreen.dart';
+import 'package:prueba/providers/ToursProvider.dart';
+import 'package:prueba/screens/HomeScreen.dart';
+import 'package:prueba/screens/LoginScreen.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+
+import 'package:prueba/providers/AuthProvider.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -9,17 +14,29 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: 'OpenSans',
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ToursProvider.instance()),
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primaryColor: Colors.blue,
+          primarySwatch: Colors.blue,
+          fontFamily: 'OpenSans',
+          primaryColorBrightness: Brightness.light,
+          brightness: Brightness.light,
+          accentColorBrightness: Brightness.light,
+        ),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => LoginScreen(),
+          '/HomeScreen': (context) => HomeScreen(),
+        },
       ),
-      home: LoginScreen(),
     );
   }
 }
