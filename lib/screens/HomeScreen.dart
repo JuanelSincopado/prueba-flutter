@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:prueba/home/CardExperiencias.dart';
 import 'package:prueba/home/EncabezadoHome.dart';
 import 'package:prueba/home/ListaCardExperiencias.dart';
 import 'package:prueba/home/ListaCardTour.dart';

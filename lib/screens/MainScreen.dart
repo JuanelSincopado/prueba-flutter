@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:prueba/screens/HomeScreen.dart';
+import 'package:prueba/screens/ToursScreen.dart';
 
 class MainScreen extends StatefulWidget {
   static final String route = "/MainScreen";
@@ -13,7 +14,7 @@ class _MainScreenState extends State<MainScreen> {
   int _page = 1;
 
   List<Widget> _pages = [
-    Text("1"),
+    ToursScreen(),
     HomeScreen(),
     Container(), // Perfil
   ];
