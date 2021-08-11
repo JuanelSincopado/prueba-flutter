@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:prueba/modelos/ModeloTours.dart';
 
 class CardExperiencias extends StatelessWidget {
-  const CardExperiencias({Key? key}) : super(key: key);
+  CardExperiencias(
+    this.tour, {
+    Key? key,
+  }) : super(key: key);
+
+  final ModeloTour tour;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +19,7 @@ class CardExperiencias extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Image.network(
-              'https://as01.epimg.net/futbol/imagenes/2021/08/10/primera/1628576300_843583_1628627690_noticia_normal_recorte1.jpg',
+              this.tour.picture,
               height: 100,
               width: 60,
               fit: BoxFit.cover,
@@ -24,21 +30,21 @@ class CardExperiencias extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Messi',
+                this.tour.name,
                 style: TextStyle(
                   color: Theme.of(context).primaryColor,
                   fontSize: 16,
                 ),
               ),
               Text(
-                'Lugar: Francia',
+                'Lugar: ${this.tour.city}',
                 style: TextStyle(
                   color: Theme.of(context).primaryColor,
                   fontSize: 12,
                 ),
               ),
               Text(
-                '1 Día',
+                '${this.tour.durationOnHours} Horas',
                 style: TextStyle(
                   color: Theme.of(context).primaryColor.withOpacity(.7),
                   fontSize: 12,

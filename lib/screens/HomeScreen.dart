@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prueba/home/CardExperiencias.dart';
 import 'package:prueba/home/EncabezadoHome.dart';
+import 'package:prueba/home/ListaCardExperiencias.dart';
 import 'package:prueba/home/ListaCardTour.dart';
 import 'package:prueba/home/SearchHome.dart';
 import 'package:prueba/home/TitulosHome.dart';
@@ -26,7 +27,7 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 20),
             TitulosHome(titulo: 'Nuevas Experiencias'),
             SizedBox(height: 20),
-            CardExperiencias(),
+            ListaCardExperiencias(),
             SizedBox(height: 20),
           ],
         ),
