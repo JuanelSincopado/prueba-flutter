@@ -51,4 +51,10 @@ class ModeloTour {
         "duration_on_hours": durationOnHours,
         "category": category,
       };
+
+  bool perteneceACategoria(String categoria) => category == categoria;
+
+  bool contieneQuery(String query) {
+    return name.toLowerCase().contains(query);
+  }
 }

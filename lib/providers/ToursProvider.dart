@@ -5,6 +5,10 @@ import 'package:http/http.dart' as http;
 
 class ToursProvider with ChangeNotifier {
   List<ModeloTour> _tours = [];
+  List<ModeloTour> _filteredTours = [];
+  String _query = "";
+  String _category = "Todos";
+
   bool _loading = false;
 
   bool get loading => _loading;
@@ -15,6 +19,9 @@ class ToursProvider with ChangeNotifier {
   }
 
   List<ModeloTour> get tours => _tours;
+  List<ModeloTour> get filteredTours => _filteredTours;
+  String get query => _query;
+  String get category => _category;
 
   ToursProvider.instance() {
     getTours();
@@ -22,6 +29,21 @@ class ToursProvider with ChangeNotifier {
 
   set tours(List<ModeloTour> tours) {
     _tours = tours;
+    notifyListeners();
+  }
+
+  set filteredTours(List<ModeloTour> filteredTours) {
+    _filteredTours = filteredTours;
+    notifyListeners();
+  }
+
+  set query(String query) {
+    _query = query;
+    notifyListeners();
+  }
+
+  set category(String category) {
+    _category = category;
     notifyListeners();
   }
 
@@ -36,10 +58,26 @@ class ToursProvider with ChangeNotifier {
         tours = jsonResponse.map<ModeloTour>((element) {
           return ModeloTour.fromJson(element);
         }).toList();
+        filteredTours = tours;
       }
     } catch (e) {
       print(e);
     }
     loading = false;
+  }
+
+  void filterTours() {
+    List<ModeloTour> result = _tours;
+
+    if (category != "Todos") {
+      result =
+          result.where((tour) => tour.perteneceACategoria(category)).toList();
+    }
+
+    if (query.isNotEmpty) {
+      result = result.where((tour) => tour.contieneQuery(query)).toList();
+    }
+
+    filteredTours = result;
   }
 }

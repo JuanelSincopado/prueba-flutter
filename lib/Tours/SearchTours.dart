@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:prueba/providers/ToursProvider.dart';
 
 class SearchTours extends StatelessWidget {
   const SearchTours({
@@ -8,11 +10,16 @@ class SearchTours extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final toursProvider = Provider.of<ToursProvider>(context);
     return Container(
       margin: EdgeInsets.only(top: 200),
       padding: EdgeInsets.symmetric(horizontal: 20),
-      child: TextField(
-        onChanged: (value) {},
+      child: TextFormField(
+        focusNode: FocusNode(),
+        onChanged: (value) {
+          toursProvider.query = value.toLowerCase().trim();
+          toursProvider.filterTours();
+        },
         decoration: InputDecoration(
           hintText: '¿Qué buscas?',
           hintStyle: TextStyle(
