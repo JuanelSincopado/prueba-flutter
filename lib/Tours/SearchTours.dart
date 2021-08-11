@@ -16,7 +16,7 @@ class SearchTours extends StatelessWidget {
         decoration: InputDecoration(
           hintText: '¿Qué buscas?',
           hintStyle: TextStyle(
-            color: Theme.of(context).primaryColor.withOpacity(.5),
+            color: Theme.of(context).primaryColor.withOpacity(.7),
             fontSize: 16,
           ),
           enabledBorder: OutlineInputBorder(
@@ -37,14 +37,14 @@ class SearchTours extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
             child: FaIcon(
               FontAwesomeIcons.search,
-              color: Theme.of(context).primaryColor.withOpacity(.5),
+              color: Theme.of(context).primaryColor.withOpacity(.2),
             ),
           ),
           suffixIcon: Container(
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
             child: FaIcon(
               FontAwesomeIcons.filter,
-              color: Theme.of(context).primaryColor.withOpacity(.5),
+              color: Theme.of(context).primaryColor.withOpacity(.2),
             ),
           ),
         ),
