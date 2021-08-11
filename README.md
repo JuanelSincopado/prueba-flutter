@@ -1,14 +1,29 @@
-# Prueba Flutter
+# Prueba Flutter para SHF
+App hecha con Flutter consumiendo Api, con Login y listado de Sitios Turísticos.
 
-## Getting Started
+**API**: https://969rgz78f9.execute-api.us-east-1.amazonaws.com/dev/ui
 
-This project is a starting point for a Flutter application.
+## Empezar
+Una vez clonado el repositorio usar el siguiente código para instalar los paquetes y correr la App respectivamente.
+```sh
+flutter pub get
+flutter run
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Lista de paquetes 
+**font_awesome_flutter: ^9.1.0**
+Para el uso de íconos se usó el paquete de FontAwesome, en lo personal una manera cómoda de implementar íconos visualmente atractivos.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+**http: ^0.13.3**
+Para aplicaciones pequeñas es recomendable usar el paquete http para interactuar con Apis.
+    
+**provider: ^5.0.0**
+Con el paquete provider se obtiene la facilidad de manejar estados globales en la App.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**email_validator: ^2.0.1**
+Paquete para hacer la validación en los input de correo en el LoginScreen.
+  
+## Argumentos
+**Diseño**: Se intentó hacer lo más fiel posible a los diseños y se pudiera adaptar sin problemas a cualquier dispositivo.
+
+**Juan Cabello, Junior Developer.**
