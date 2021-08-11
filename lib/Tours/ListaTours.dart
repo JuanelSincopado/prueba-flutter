@@ -9,12 +9,6 @@ class ListaTours extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final toursProvider = Provider.of<ToursProvider>(context);
-
-    toursProvider.filteredTours.forEach((element) {
-      print(element.name);
-    });
-
     return Expanded(
       child: Consumer<ToursProvider>(
         builder: (context, toursProvider, widget) {
