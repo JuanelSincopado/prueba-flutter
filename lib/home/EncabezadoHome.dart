@@ -10,29 +10,32 @@ class EncabezadoHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Consumer<AuthProvider>(
-          builder: (context, authProvider, widget) {
-            return Text(
-              '¡Buenos días ${authProvider.usuario!.firstName}!',
-              style: TextStyle(
-                fontSize: 22,
-                color: Color.fromRGBO(45, 78, 96, 1),
-                fontWeight: FontWeight.bold,
-              ),
-            );
-          },
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: FaIcon(
-            FontAwesomeIcons.shoppingCart,
-            color: Color.fromRGBO(45, 78, 96, .3),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Consumer<AuthProvider>(
+            builder: (context, authProvider, widget) {
+              return Text(
+                '¡Buenos días ${authProvider.usuario!.firstName}!',
+                style: TextStyle(
+                  fontSize: 22,
+                  color: Color.fromRGBO(45, 78, 96, 1),
+                  fontWeight: FontWeight.bold,
+                ),
+              );
+            },
           ),
-        ),
-      ],
+          IconButton(
+            onPressed: () {},
+            icon: FaIcon(
+              FontAwesomeIcons.shoppingCart,
+              color: Color.fromRGBO(45, 78, 96, .3),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:prueba/home/CardExperiencias.dart';
 import 'package:prueba/home/EncabezadoHome.dart';
+import 'package:prueba/home/ListaCardTour.dart';
 import 'package:prueba/home/SearchHome.dart';
-import 'package:prueba/home/CardTours.dart';
-import 'package:prueba/modelos/ModeloTours.dart';
-import 'package:prueba/providers/ToursProvider.dart';
+import 'package:prueba/home/TitulosHome.dart';
 
 class HomeScreen extends StatelessWidget {
   static final String route = "/HomeScreen";
@@ -13,40 +12,22 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        padding: EdgeInsets.all(20),
+      child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             EncabezadoHome(),
-            SizedBox(height: 30),
+            SizedBox(height: 20),
             SearchHome(),
             SizedBox(height: 20),
-            Text(
-              'Tours Gastronómicos',
-              style: TextStyle(
-                color: Color.fromRGBO(45, 78, 96, 1),
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 25),
-            Consumer<ToursProvider>(
-              builder: (context, toursProvider, widget) {
-                return Container(
-                  height: MediaQuery.of(context).size.width * 0.7 - 60,
-                  child: ListView.separated(
-                    separatorBuilder: (_, __) => SizedBox(width: 20),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: toursProvider.tours.length,
-                    itemBuilder: (context, index) {
-                      ModeloTour tour = toursProvider.tours[index];
-                      return CardTourHome(tour);
-                    },
-                  ),
-                );
-              },
-            )
+            TitulosHome(titulo: 'Tours Gastronómicos'),
+            SizedBox(height: 20),
+            ListaCardTour(),
+            SizedBox(height: 20),
+            TitulosHome(titulo: 'Nuevas Experiencias'),
+            SizedBox(height: 20),
+            CardExperiencias(),
+            SizedBox(height: 20),
           ],
         ),
       ),

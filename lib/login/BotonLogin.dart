@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:prueba/providers/AuthProvider.dart';
-import 'package:prueba/screens/HomeScreen.dart';
 
 class BotonLogin extends StatelessWidget {
   const BotonLogin({

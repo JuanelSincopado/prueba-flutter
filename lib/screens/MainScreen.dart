@@ -1,4 +1,3 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:prueba/screens/HomeScreen.dart';
@@ -13,7 +12,11 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _page = 1;
 
-  List<Widget> _pages = [Text("1"), HomeScreen(), Text("3")];
+  List<Widget> _pages = [
+    Text("1"),
+    HomeScreen(),
+    Container(), // Perfil
+  ];
 
   FloatingActionButtonLocation _getFabLocation() {
     switch (_page) {
@@ -64,10 +67,11 @@ class _MainScreenState extends State<MainScreen> {
         notchMargin: 8.0,
         clipBehavior: Clip.antiAlias,
         elevation: 50,
+        color: Colors.transparent,
         child: Container(
           height: 100,
           child: Container(
-            color: Colors.white,
+            color: Colors.transparent,
             child: BottomNavigationBar(
               currentIndex: _page,
               backgroundColor: Colors.white,

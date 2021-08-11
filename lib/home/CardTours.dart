@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'package:prueba/modelos/ModeloTours.dart';
-import 'package:prueba/providers/ToursProvider.dart';
 
 class CardTourHome extends StatelessWidget {
   const CardTourHome(
@@ -50,16 +48,28 @@ class CardTourHome extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(this.tour.name),
+                    Text(
+                      this.tour.name,
+                      style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.bold),
+                    ),
                     SizedBox(height: 10),
                     Row(
                       children: [
                         FaIcon(
                           FontAwesomeIcons.solidCreditCard,
                           size: 12,
+                          color: Theme.of(context).primaryColor.withOpacity(.7),
                         ),
                         SizedBox(width: 5),
-                        Text('\$${this.tour.price} por persona'),
+                        Text(
+                          '\$${this.tour.price} por persona',
+                          style: TextStyle(
+                            color:
+                                Theme.of(context).primaryColor.withOpacity(.7),
+                          ),
+                        ),
                       ],
                     )
                   ],
